@@ -1,5 +1,6 @@
 # lab_intro
-This lab was the first lab of the course and useful for guidance setting up your programming environment and making sure everything works before diving into more complex code.
+This lab was the first lab of the course and useful for guidance setting up your programming environment and making sure everything works before diving into more complex code. 
+It introduces students to the HSLA color definition and warms up their ability to traverse through and manipulate the pixels of an image in C++. 
 The instructions for this lab can be found at https://courses.engr.illinois.edu/cs225/fa2018/labs/intro-2/  
 
 ## Edited Files
@@ -16,4 +17,12 @@ The provided test cases can be run by typing <code>make test</code> and then <co
 Keep in mind that some test cases may produce different results on different computers.
 
 ## Output
-TBD
+Compiling the file throws two warnings in lines 67 and 69 because I compared an unsigned int to a signed int.
+The file still runs, passes all 29 assteratations in 8 given test cases, and produces the desired results as shown below:  
+  
+#### Illinify Output
+![illinify](out-illinify.png "out-illinify.png")
+#### Spotlight Output
+![spotlight](out-spotlight.png "out-spotlight.png")
+#### Watermark Output
+![watermark](out-watermark.png "out-watermark.png")
