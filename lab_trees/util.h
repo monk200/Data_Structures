@@ -2,7 +2,7 @@
 
 #include "binarytree.h"
 
-double pemdasToAST(const std::string &pemdas_str, typename BinaryTree<std::string>::Node* &t, vector<std::pair<typename BinaryTree<std::string>::Node*, double>> &subtrees)
+double pemdasToAST(const std::string& pemdas_str, typename BinaryTree<std::string>::Node*& t, std::vector<std::pair<typename BinaryTree<std::string>::Node*, double>>& subtrees)
 {
     std::string spaceless = "";
     for (const char c : pemdas_str) {
@@ -18,7 +18,7 @@ double pemdasToAST(const std::string &pemdas_str, typename BinaryTree<std::strin
         if (spaceless[i] == '(')
         {
             int depth = 1;
-            string tok = "";
+            std::string tok = "";
             ++i;
             while (true)
             {
@@ -82,17 +82,17 @@ double pemdasToAST(const std::string &pemdas_str, typename BinaryTree<std::strin
         }
         if (idx_str != "")
         {
-            int idx = stoi(idx_str);
+            int idx = std::stoi(idx_str);
             t = subtrees[idx].first;
             return subtrees[idx].second;
         }
     }
 
     t = new typename BinaryTree<std::string>::Node(tokenize);
-    return stod(tokenize);
+    return std::stod(tokenize);
 }
 
-double pemdasToAST(const std::string &pemdas_str, typename BinaryTree<std::string>::Node* &t) {
-    vector<std::pair<typename BinaryTree<std::string>::Node*, double>> subtrees;
+double pemdasToAST(const std::string& pemdas_str, typename BinaryTree<std::string>::Node*& t) {
+    std::vector<std::pair<typename BinaryTree<std::string>::Node*, double>> subtrees;
     return pemdasToAST(pemdas_str, t, subtrees);
 }

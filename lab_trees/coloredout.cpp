@@ -110,7 +110,9 @@ int colored_out::start()
 			// end if we're done with input
 			if (c == '\0') break;
 
-			if (isdigit(e) || e == '/' || e == '\\' || e == '_' || e == '-')
+			// This list should contain any value that could be in tree output
+			// This includes math symbols (for ASTs)
+			if (isdigit(e) || e == '/' || e == '\\' || e == '_' || e == '+' || e == '-' || e == '*')
 			{
 				if (c == e)
 					output_green(c);

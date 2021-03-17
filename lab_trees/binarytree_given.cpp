@@ -74,7 +74,7 @@ class BinaryTreeNodeDescriptor
     {
         return node == NULL;
     }
-    string key() const
+    std::string key() const
     {
         std::stringstream ss;
         ss << node->elem;
@@ -100,25 +100,41 @@ void BinaryTree<T>::print() const
 }
 
 template <typename T>
-void BinaryTree<T>::insert(const T& elem, bool sorted /* = false */)
+void BinaryTree<T>::insert(const T& elem)
 {
-    insert(root, elem, sorted);
+    insert(root, elem);
+}
+
+
+template <typename T>
+void BinaryTree<T>::insert(Node*& node, const T& elem)
+{
+    // If we're at a NULL pointer, we can put our element here
+    if (node == NULL) {
+        node = new Node(elem);
+    } else if (elem < node->elem) {
+        insert(node->left, elem);
+    } else {
+        insert(node->right, elem);
+    }
 }
 
 template <typename T>
-void BinaryTree<T>::insert(Node*& node, const T& elem, bool sorted)
+void BinaryTree<T>::insertRandom(const T& elem, std::mt19937& rng)
 {
-    // If we're at a NULL pointer, we can put our element here
-    if (node == NULL)
+    insertRandom(root, elem, rng);
+}
+
+template <typename T>
+void BinaryTree<T>::insertRandom(Node*& node, const T& elem, std::mt19937& rng)
+{
+    if (node == NULL) {
         node = new Node(elem);
-
-    // If sorted, go left/right based on ordering
-    // If random, go left or right based on pseudorandom even/odd
-    else if (sorted ? elem < node->elem : util::urand() % 2 == 0)
-        insert(node->left, elem, sorted);
-
-    else // right side / larger
-        insert(node->right, elem, sorted);
+    } else if (rng() % 2 == 0) {
+        insertRandom(node->left, elem, rng);
+    } else {
+        insertRandom(node->right, elem, rng);
+    }
 }
 
 template <typename T>
@@ -146,12 +162,12 @@ void BinaryTree<T>::clear(BinaryTree::Node* subRoot)
 }
 
 template <typename T>
-void BinaryTree<T>::inOrder(vector <T> &treeVector){
+void BinaryTree<T>::inOrder(std::vector<T>& treeVector){
     inOrder(root, treeVector);
 }
 
 template <typename T>
-void BinaryTree<T>::inOrder(BinaryTree::Node* subRoot, vector<T> &treeVector){
+void BinaryTree<T>::inOrder(BinaryTree::Node* subRoot, std::vector<T>& treeVector){
     if(subRoot != NULL){
       inOrder(subRoot->left, treeVector);
       treeVector.push_back(subRoot->elem);

@@ -10,8 +10,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include "random.h"
-using namespace std;
+#include <random>
 
 /**
  * The BinaryTree class represents a templated linked-memory tree data
@@ -46,7 +45,7 @@ class BinaryTree
         BinaryTree();
 
         /**
-         * Constructor to that wraps raw nodes as a BinaryTree class.
+         * Constructor that wraps raw nodes as a BinaryTree class.
          */
         BinaryTree(Node* heapNode);
 
@@ -73,13 +72,19 @@ class BinaryTree
         void clear();
 
         /**
-         * Inserts into the BinaryTree.
+         * Inserts into the BinaryTree in BST order.
          * @param elem The element to insert
-         * @param sorted By default, this parameter is false. That means that the
-         *  element takes a pseudo-random path to a leaf where it is inserted. If
-         *  true, the insert function will act like it does in a BST.
          */
-        void insert(const T& elem, bool sorted = false);
+        void insert(const T& elem);
+
+        /**
+         * Inserts the given value into the BinaryTree, taking a random path
+         * to the leaf where it is inserted.
+         *
+         * @param elem The element to insert
+         * @param rng  The random number generator used to compute the path
+         */
+        void insertRandom(const T& elem, std::mt19937& rng);
 
         /**
          * Prints the contents of the tree to stdout.
@@ -89,7 +94,7 @@ class BinaryTree
         /**
          * @return The root of the binary tree
          */
-        Node* getRoot() const;  
+        Node* getRoot() const;
 
         /**
          * This lab deals with the following six helper functions:
@@ -132,27 +137,6 @@ class BinaryTree
          */
         bool isOrderedRecursive() const;
 
-
-        /**
-         * creates vectors of all the possible paths from the root of the tree to any leaf
-         * node and adds it to another vector.
-         * Path is, all sequences starting at the root node and continuing
-         * downwards, ending at a leaf node. Paths ending in a left node should be
-         * added before paths ending in a node further to the right.
-         * @param paths vector of vectors that contains path of nodes
-         */
-        void getPaths(vector<vector<T> > &paths) const;
-
-        /**
-         * Each node in a tree has a distance from the root node - the depth of that
-         * node, or the number of edges along the path from that node to the root.
-         * This function returns the sum of the distances of all nodes to the root
-         * node (the sum of the depths of all the nodes). Your solution should take
-         * O(n) time, where n is the number of nodes in the tree.
-         * @return The sum of the distances of all nodes to the root
-         */
-        int sumDistances() const;
-
         /**
          *  Uses vector to store values of the nodes of a binary tree in order.
          * That is, everything to the left of a node will be pushed before that
@@ -160,7 +144,7 @@ class BinaryTree
          * after that node.
          * @param treeVector stores nodes in order
          */
-        void inOrder(vector <T>& treeVector );
+        void inOrder(std::vector<T>& treeVector);
 
     protected:
 
@@ -191,14 +175,19 @@ class BinaryTree
 
 
         /**
-         * Private helper function for the public insert function.
+         * Private helper function for the sorted public insert function.
          * @param node The current node in the recursion
          * @param elem The element to insert
-         * @param sorted By default, this parameter is false. That means that the
-         *  element takes a pseudo-random path to a leaf where it is inserted. If
-         *  true, the insert function will act like it does in a BST.
          */
-        void insert(Node*& node, const T& elem, bool sorted);
+        void insert(Node*& node, const T& elem);
+
+        /**
+         * Private helper function for the random public insert function.
+         * @param node The current node in the recursion
+         * @param elem The element to insert
+         * @param rng  The random number generator used to compute the path
+         */
+        void insertRandom(Node*& node, const T& elem, std::mt19937& rng);
 
         /**
          * Helper function for operator= and cctor.
@@ -217,7 +206,7 @@ class BinaryTree
          * @param subRoot The current node in the recursion
          * @param treeVector stores nodes in order
          */
-        void inOrder(Node *subRoot, vector<T>& treeVector);
+        void inOrder(Node *subRoot, std::vector<T>& treeVector);
 };
 
 #include "binarytree_given.cpp"

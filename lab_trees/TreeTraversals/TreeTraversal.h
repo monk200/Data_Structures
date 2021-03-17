@@ -1,7 +1,8 @@
 #pragma once
 
-#include <iterator>
 #include "../binarytree.h"
+
+#include <iterator>
 
 /**
  * Pure virtual class for traversal algorithms on trees.
@@ -36,11 +37,11 @@ class TreeTraversal {
                  * @param traversal The traversal reference passed in
                  * @param root The root of the tree to be traversed
                  */
-                Iterator(TreeTraversal<T> & traversal, typename BinaryTree<T>::Node* root) 
-                    :traversal(&traversal), root(root)
+                Iterator(TreeTraversal<T>* traversal, typename BinaryTree<T>::Node* root)
+                    :traversal(traversal), root(root)
                 {
                     /** initialize the current iterator to top Node of the stack*/
-                    current = traversal.peek();
+                    current = traversal->peek();
                 }
 
                 /**
@@ -73,7 +74,7 @@ class TreeTraversal {
                  * 
                  * @return if two iterators are not equal.
                  */
-                bool operator!=(const Iterator &other) 
+                bool operator!=(const Iterator& other) 
                 {
                     bool thisEmpty = false; 
                     bool otherEmpty = false;

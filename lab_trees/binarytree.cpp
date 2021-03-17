@@ -31,7 +31,7 @@ int BinaryTree<T>::height(const Node* subRoot) const
         return -1;
 
     // Recursive definition
-    return 1 + max(height(subRoot->left), height(subRoot->right));
+    return 1 + std::max(height(subRoot->left), height(subRoot->right));
 }
 
 /**
@@ -47,7 +47,7 @@ void BinaryTree<T>::printLeftToRight() const
     printLeftToRight(root);
 
     // Finish the line
-    cout << endl;
+    std::cout << std::endl;
 }
 
 /**
@@ -65,7 +65,7 @@ void BinaryTree<T>::printLeftToRight(const Node* subRoot) const
     printLeftToRight(subRoot->left);
 
     // Print this node
-    cout << subRoot->elem << ' ';
+    std::cout << subRoot->elem << ' ';
 
     // Print right subtree
     printLeftToRight(subRoot->right);
@@ -106,36 +106,5 @@ bool BinaryTree<T>::isOrderedRecursive() const
 {
     // your code here
     return false;
-}
-
-
-/**
- * creates vectors of all the possible paths from the root of the tree to any leaf
- * node and adds it to another vector.
- * Path is, all sequences starting at the root node and continuing
- * downwards, ending at a leaf node. Paths ending in a left node should be
- * added before paths ending in a node further to the right.
- * @param paths vector of vectors that contains path of nodes
- */
-template <typename T>
-void BinaryTree<T>::getPaths(vector<vector<T> > &paths) const
-{
-    // your code here
-}
-
-
-/**
- * Each node in a tree has a distance from the root node - the depth of that
- * node, or the number of edges along the path from that node to the root. This
- * function returns the sum of the distances of all nodes to the root node (the
- * sum of the depths of all the nodes). Your solution should take O(n) time,
- * where n is the number of nodes in the tree.
- * @return The sum of the distances of all nodes to the root
- */
-template <typename T>
-int BinaryTree<T>::sumDistances() const
-{
-    // your code here
-    return -1;
 }
 

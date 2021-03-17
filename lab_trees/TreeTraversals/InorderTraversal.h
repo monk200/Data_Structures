@@ -1,11 +1,10 @@
 #pragma once
 	
-#include <iterator>
-#include <stack>
 #include "../binarytree.h"
 #include "TreeTraversal.h"
 
-using namespace std;
+#include <iterator>
+#include <stack>
 
 /**
  * A derived, templatized class for inorder traversal algorithms on trees.
@@ -37,8 +36,7 @@ class InorderTraversal : public TreeTraversal<T> {
      * @return The iterator object pointing to the first node in the traversal
      */	
     typename TreeTraversal<T>::Iterator begin() {
-      InorderTraversal* iot = new InorderTraversal(root);
-      return typename TreeTraversal<T>::Iterator(*iot, root);
+      return typename TreeTraversal<T>::Iterator(this, root);
     }
 
     /**
@@ -97,6 +95,6 @@ class InorderTraversal : public TreeTraversal<T> {
     }
 
   private:
-    stack<typename BinaryTree<T>::Node*> stack;
+    std::stack<typename BinaryTree<T>::Node*> stack;
     typename BinaryTree<T>::Node* root;
 };
