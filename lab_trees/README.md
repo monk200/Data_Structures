@@ -1,8 +1,8 @@
 # lab_trees
-The instructions for this lab can be found at https://courses.engr.illinois.edu/cs225/fa2018/labs/trees/  
+The instructions for this lab can be found at https://courses.engr.illinois.edu/cs225/sp2021/labs/trees/
 
 ## Edited Files
-TBD
+I created the mirror, isOrderedIterative, and isOrderedRecursive functions in binarytree.h and binarytree.cpp as well as InorderTraversal and add functions in TreeTraversals\InorderTraversal.h. The other functions and files were provided for me by the course.
 
 ## Running and Testing
 Compile the code by typing <code>make</code> into the linux terminal while in the lab_intro directory.
