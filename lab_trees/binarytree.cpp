@@ -109,7 +109,15 @@ template <typename T>
 bool BinaryTree<T>::isOrderedIterative() const
 {
     // your code here
-    return false;
+    InorderTraversal<int> iot(root);    // get inorder traversal
+
+    int lastVal = (*iot.begin())->elem;
+    for (TreeTraversal<int>::Iterator it=iot.begin(); it != iot.end(); ++it) {
+      if ((*it)->elem < lastVal) return false;    // this element is smaller than the last (decreasing)
+      lastVal = (*it)->elem;
+    }
+
+    return true;    // reaches this point iff nondecreasing
 }
 
 /**
@@ -122,5 +130,12 @@ template <typename T>
 bool BinaryTree<T>::isOrderedRecursive() const
 {
     // your code here
-    return false;
+    return isOrderedRecursive(root);
+}
+
+template <typename T>
+bool BinaryTree<T>::isOrderedRecursive(Node* subRoot) const
+{
+    if ((subRoot->left > subRoot) && (subRoot < subRoot->right)) return false;
+    return true;
 }

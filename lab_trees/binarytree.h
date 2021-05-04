@@ -177,7 +177,6 @@ class BinaryTree
          */
         void mirror(Node* subRoot);
 
-
         /**
          * Private helper function for the sorted public insert function.
          * @param node The current node in the recursion
@@ -211,6 +210,12 @@ class BinaryTree
          * @param treeVector stores nodes in order
          */
         void inOrder(Node *subRoot, std::vector<T>& treeVector);
+
+        /**
+         * Private helper function for public isOrderedRecursive() function.
+         * @param subRoot The current node in the recursion
+         */
+        bool isOrderedRecursive(Node* subRoot) const;
 };
 
 #include "binarytree_given.cpp"
