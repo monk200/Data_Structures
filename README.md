@@ -6,8 +6,8 @@ Please do not steal the code if you are currently in the course, there is no gua
 ## Content
 Each individual lab or MP will have its own README file with a link to the instructions, more information on how to run it, which files I altered, and the output created. 
   
-* lab_intro: A simple lab to get comfortable using C++ in your coding environemnt and manipulating images using the HSLAPixel class  
-* lab_trees: A lab that works with binary trees, traversing them and manipulating them iteratively and recursively. It also utilizes C++ templates and iterators.  
+* [lab_intro](https://github.com/monk200/Data_Structures/tree/main/lab_intro): A simple lab to get comfortable using C++ in your coding environemnt and manipulating images using the HSLAPixel class  
+* [lab_trees](https://github.com/monk200/Data_Structures/tree/main/lab_trees): A lab that works with binary trees, traversing them and manipulating them iteratively and recursively. It also utilizes C++ templates and iterators.  
 * lab_huffman:  
 * MP4:  
 * MP6:  
