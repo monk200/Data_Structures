@@ -4,9 +4,8 @@ It introduces students to the HSLA color definition and warms up their ability t
 The instructions for this lab can be found at https://courses.engr.illinois.edu/cs225/fa2018/labs/intro-2/  
 
 ## Edited Files
-I created the cs225 namespace in HSLAPixel.h and HSLAPixel.cpp accoring to the doxygen for HSLAPixel
-(https://courses.engr.illinois.edu/cs225/fa2018//doxygen/lab_intro/classcs225_1_1HSLAPixel.html)
-and the createSpotlight, illinify, and watermark functions in lab_intro.cpp. The other files, functions, and tests were provided for me by the course.
+I created the cs225 namespace in [./cs225/HSLAPixel.h](https://github.com/monk200/Data_Structures/blob/main/lab_intro/cs225/HSLAPixel.h) and [./cs225/HSLAPixel.cpp](https://github.com/monk200/Data_Structures/blob/main/lab_intro/cs225/HSLAPixel.cpp) accoring to the [doxygen for HSLAPixel](https://courses.engr.illinois.edu/cs225/fa2018//doxygen/lab_intro/classcs225_1_1HSLAPixel.html)
+and the createSpotlight, illinify, and watermark functions in [lab_intro.cpp](https://github.com/monk200/Data_Structures/blob/main/lab_intro/lab_intro.cpp). The other files, functions, and tests were provided for me by the course.
 
 ## Running and Testing
 Compile the code by typing <code>make</code> into the linux terminal while in the lab_intro directory.
@@ -18,7 +17,7 @@ Keep in mind that some test cases may produce different results on different com
 
 ## Output
 Compiling the file throws two warnings in lines 67 and 69 because I compared an unsigned int to a signed int.
-The file still runs, passes all 29 assteratations in 8 given test cases, and produces the desired results as shown below:  
+The file still runs, passes all 29 asserations in 8 given test cases, and produces the desired results as shown below:  
   
 #### Illinify Output
 ![illinify](out-illinify.png "out-illinify.png")
