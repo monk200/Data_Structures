@@ -8,7 +8,7 @@ Each individual lab or MP will have its own README file with a link to the instr
   
 * [lab_intro](https://github.com/monk200/Data_Structures/tree/main/lab_intro): A simple lab to get comfortable using C++ in your coding environemnt and manipulating images using the HSLAPixel class  
 * [lab_trees](https://github.com/monk200/Data_Structures/tree/main/lab_trees): A lab that works with binary trees, traversing them and manipulating them iteratively and recursively. It also utilizes C++ templates and iterators.  
-* lab_huffman:  
+* [lab_huffman](https://github.com/monk200/Data_Structures/tree/main/lab_huffman): A lab that explores Huffman trees and how they can be used for lossless compression.  
 * MP4:  
 * MP6:  
 * lab_dict:  
