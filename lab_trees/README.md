@@ -15,4 +15,4 @@ Keep in mind that some test cases may produce different results on different com
 ## Output
 At the moment, isOrderedRecursive() is still not completed so the code passes 3/4 test cases and 25/26 assertions. The output from running <code>./treefun color</code> is shown below:  
 
-![treefun color](Output.png "Output.PNG")
+![Output.png](https://github.com/monk200/Data_Structures/blob/main/lab_trees/Output.PNG)
